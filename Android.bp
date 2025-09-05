@@ -5309,6 +5309,53 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "vendor.xiaomi.hardware.citsensorservice@1.1-impl",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/hw/vendor.xiaomi.hardware.citsensorservice@1.1-impl.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "libhidltransport",
+                "libutils",
+                "liblog",
+                "libcutils",
+                "libhardware",
+                "libbase",
+                "libssccalapi",
+                "vendor.xiaomi.hardware.citsensorservice@1.0",
+                "vendor.xiaomi.hardware.citsensorservice@1.1",
+                "android.frameworks.sensorservice@1.0",
+                "android.hardware.graphics.allocator@4.0",
+                "android.hardware.graphics.mapper@4.0",
+                "android.hardware.graphics.common@1.2",
+                "vendor.display.config@2.0",
+                "libqdutils",
+                "vendor.qti.hardware.display.composer@3.0",
+                "vendor.qti.hardware.display.allocator@4.0",
+                "vendor.qti.hardware.display.mapper@4.0",
+                "vendor.qti.hardware.display.mapperextensions@1.1",
+                "libdisplayconfig.qti",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    check_elf_files: false,
+    relative_install_path: "hw",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "jcos_nq_client",
     owner: "xiaomi",
     strip: {
@@ -5881,31 +5928,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libQnnHtpStub",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libQnnHtpStub.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libcdsprpc",
-                "libm",
-                "libdl",
-                "libc",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libadsp_default_listener",
     owner: "xiaomi",
     strip: {
@@ -6160,6 +6182,7 @@ cc_prebuilt_library_shared {
                 "vendor.qti.latency@2.1",
                 "vendor.qti.hardware.mwqemadapter@1.0",
                 "vendor.qti.data.mwqem@1.0",
+                "libwpa_client",
                 "libc++",
                 "libc",
                 "libm",
@@ -6168,7 +6191,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
-    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8750,6 +8772,7 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.data.cne.internal.server@1.0",
                 "vendor.qti.hardware.data.cne.internal.api@1.0",
                 "vendor.qti.hardware.mwqemadapter@1.0",
+                "libwpa_client",
                 "libc++",
                 "libc",
                 "libm",
@@ -8758,7 +8781,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
-    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -11674,6 +11696,63 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "vendor.xiaomi.hardware.citsensorservice@1.0",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.xiaomi.hardware.citsensorservice@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.xiaomi.hardware.citsensorservice@1.1",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.xiaomi.hardware.citsensorservice@1.1.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "vendor.xiaomi.hardware.citsensorservice@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "com.qualcomm.qti.dpm.api@1.0",
     owner: "xiaomi",
     strip: {
@@ -12562,6 +12641,7 @@ cc_prebuilt_library_shared {
                 "proprietary/system_ext/lib64/libwfdservice.so",
             ],
             shared_libs: [
+                "libaudioclient_shim",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -12971,17 +13051,6 @@ android_app_import {
 }
 
 android_app_import {
-    name: "TimeService",
-    owner: "xiaomi",
-    apk: "proprietary/vendor/app/TimeService/TimeService.apk",
-    certificate: "platform",
-    dex_preopt: {
-        enabled: false,
-    },
-    soc_specific: true,
-}
-
-android_app_import {
     name: "HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND",
     owner: "xiaomi",
     apk: "proprietary/product/priv-app/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND.apk",
@@ -13176,6 +13245,15 @@ prebuilt_etc_xml {
     name: "vendor.qti.gnss@4.0-service.xml",
     owner: "xiaomi",
     src: "proprietary/vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml",
+    filename_from_src: true,
+    sub_dir: "vintf/manifest",
+    soc_specific: true,
+}
+
+prebuilt_etc_xml {
+    name: "vendor.xiaomi.hardware.citsensorservice@1.1-service.xml",
+    owner: "xiaomi",
+    src: "proprietary/vendor/etc/vintf/manifest/vendor.xiaomi.hardware.citsensorservice@1.1-service.xml",
     filename_from_src: true,
     sub_dir: "vintf/manifest",
     soc_specific: true,
@@ -13969,6 +14047,41 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_binary {
+    name: "vendor.xiaomi.hardware.citsensorservice@1.1-service",
+    owner: "xiaomi",
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/bin/hw/vendor.xiaomi.hardware.citsensorservice@1.1-service",
+            ],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libbase",
+                "libutils",
+                "libssccalapi",
+                "libhidlbase",
+                "libhidltransport",
+                "vendor.xiaomi.hardware.citsensorservice@1.0",
+                "vendor.xiaomi.hardware.citsensorservice@1.1",
+                "android.frameworks.sensorservice@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+    prefer: true,
+    relative_install_path: "hw",
+    soc_specific: true,
+}
+
+cc_prebuilt_binary {
     name: "ims_rtp_daemon",
     owner: "xiaomi",
     target: {
@@ -14113,6 +14226,7 @@ cc_prebuilt_binary {
                 "libgps.utils",
                 "liblog",
                 "libnl",
+                "libwpa_client",
                 "libqmi_cci",
                 "libqmi_common_so",
                 "libdiag",
@@ -14124,7 +14238,6 @@ cc_prebuilt_binary {
         },
     },
     compile_multilib: "64",
-    check_elf_files: false,
     strip: {
         none: true,
     },
@@ -14788,34 +14901,6 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_binary {
-    name: "time_daemon",
-    owner: "xiaomi",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/bin/time_daemon",
-            ],
-            shared_libs: [
-                "libc",
-                "liblog",
-                "libcutils",
-                "libqmi_cci",
-                "libqmi_common_so",
-                "libc++",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_binary {
     name: "vppservice",
     owner: "xiaomi",
     target: {
@@ -14987,6 +15072,7 @@ cc_prebuilt_binary {
                 "proprietary/system_ext/bin/wfdservice64",
             ],
             shared_libs: [
+                "libwfdservice_shim",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -15010,4 +15096,38 @@ cc_prebuilt_binary {
     },
     prefer: true,
     system_ext_specific: true,
+}
+
+filegroup {
+    name: "proprietary_rildb_config_sql_files",
+    srcs: [
+        "proprietary/vendor/etc/qcril_database/upgrade/config/10.0_config.sql",
+        "proprietary/vendor/etc/qcril_database/upgrade/config/6.0_config.sql",
+        "proprietary/vendor/etc/qcril_database/upgrade/config/7.0_config.sql",
+        "proprietary/vendor/etc/qcril_database/upgrade/config/8.0_config.sql",
+        "proprietary/vendor/etc/qcril_database/upgrade/config/9.0_config.sql",
+    ],
+}
+
+filegroup {
+    name: "proprietary_rildb_other_sql_files",
+    srcs: [
+        "proprietary/vendor/etc/qcril_database/upgrade/other/0_initial_qcrilnr.sql",
+        "proprietary/vendor/etc/qcril_database/upgrade/other/10_version_update_ecc_table.sql",
+        "proprietary/vendor/etc/qcril_database/upgrade/other/1_version_intro_qcrilnr.sql",
+        "proprietary/vendor/etc/qcril_database/upgrade/other/2_version_add_wps_config_qcrilnr.sql",
+        "proprietary/vendor/etc/qcril_database/upgrade/other/3_version_update_wps_config_qcrilnr.sql",
+        "proprietary/vendor/etc/qcril_database/upgrade/other/4_version_update_ecc_table_qcrilnr.sql",
+        "proprietary/vendor/etc/qcril_database/upgrade/other/5_version_update_ecc_table_qcrilnr.sql",
+        "proprietary/vendor/etc/qcril_database/upgrade/other/6_version_change_property_table_qcrilnr.sql",
+        "proprietary/vendor/etc/qcril_database/upgrade/other/7_version_update_ecc_table_qcrilnr.sql",
+        "proprietary/vendor/etc/qcril_database/upgrade/other/8_version_update_ecc_table.sql",
+        "proprietary/vendor/etc/qcril_database/upgrade/other/9_version_update_ecc_table.sql",
+    ],
+}
+
+cc_library_shared {
+    name: "libssccalapi",
+    compile_multilib: "64",
+    soc_specific: true,
 }
